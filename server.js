@@ -81,7 +81,7 @@ app.get("/", function(req, res) {
   db.Article.find({})
     .then(function(dbArticle) {
       // res.json(dbArticle);
-      res.render("index", dbArticle);
+      res.render("index", {article: dbArticle});
     })
     .catch(function(err) {
       res.json(err);
@@ -91,8 +91,40 @@ app.get("/", function(req, res) {
 // Route for saved articles
 
 app.get("/saved", function(req, res) {
+  db.notes.find(
+    {
+      // Using the id in the url
+      saved: true
+    },
+    function(error, found) {
+      // log any errors
+      if (error) {
+        console.log(error);
+        res.send(error);
+      }
+      else {
+        // Otherwise, send the note to the browser
+        // This will fire off the success function of the ajax request
+        console.log(found);
+        res.send(found);
+      }
+    }
+  );
   res.render("saved");
-})
+});
+
+// Route for saving articles to favorites
+app.put("/saved/:id", function(req, res) {
+  db.Article.findOneAndUpdate( {_id: req.params.id}, {$set: {saved: true}}, { new: true })
+  .then(function(dbArticle) {
+    res.json(dbArticle);
+    console.log(dbArticle);
+  })
+  .catch(function(err) {
+    res.json(err);
+    console.log(err);
+  });
+});
 
 // Route for saving/updating an Article's associatd note
 app.post("/articles/:id", function(req, res) {

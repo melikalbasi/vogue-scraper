@@ -41,6 +41,41 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
+
+// GET route for scraping vogue website
+app.get("/scrape", function(req, res) {
+  axios.get("http://www.vogue.com/").then(function(response) {
+
+    var $ = cheerio.load(response.data);
+
+    $("h2.feed-card--title").each(function(i, element) {
+
+      var result = {};
+
+      result.title = $(this)
+        .children("a")
+        .text();
+      result.link = $(this)
+        .children("a")
+        .attr("href");
+
+      db.Article.create(result)
+        .then(function(dbArticle) {
+          console.log(dbArticle);
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    });
+
+    res.send("Scrape Complete");
+
+  });
+});
+
+
+
+
 app.get("/", function(req, res) {
   res.render("index");
 })

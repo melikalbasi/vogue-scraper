@@ -80,8 +80,8 @@ app.get("/", function(req, res) {
 
   db.Article.find({})
     .then(function(dbArticle) {
-      res.json(dbArticle);
-      // res.render("index", dbArticle);
+      // res.json(dbArticle);
+      res.render("index", dbArticle);
     })
     .catch(function(err) {
       res.json(err);

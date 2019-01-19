@@ -74,17 +74,42 @@ app.get("/scrape", function(req, res) {
 });
 
 
-
+// Route for homepage
 
 app.get("/", function(req, res) {
-  res.render("index");
-})
 
+  db.Article.find({})
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+      // res.render("index", dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+// Route for saved articles
 
 app.get("/saved", function(req, res) {
   res.render("saved");
 })
 
+// Route for saving/updating an Article's associatd note
+app.post("/articles/:id", function(req, res) {
+
+  db.Note.create(req.body)
+    .then(function(dbNote) {
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote}, { new: true });
+    })
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+// Start the server
 app.listen(PORT, function() {
   // Log server-side when our server has started
   console.log("Server is listening on: http://localhost:" + PORT);

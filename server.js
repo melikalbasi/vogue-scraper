@@ -45,7 +45,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 app.get("/", function(req, res) {
-  res.render("home");
+  res.render("index");
   console.log("connected");
 })
 

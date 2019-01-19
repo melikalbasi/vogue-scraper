@@ -1,0 +1,29 @@
+{
+  "name": "vogue-scraper",
+  "version": "1.0.0",
+  "description": "using data from vogue.com to display all the current articles posted",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melikalbasi/Vogue-Scraper.git"
+  },
+  "author": "melika kalbasi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melikalbasi/Vogue-Scraper/issues"
+  },
+  "homepage": "https://github.com/melikalbasi/Vogue-Scraper#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.5",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0"
+  }
+}

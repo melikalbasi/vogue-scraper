@@ -1,6 +1,42 @@
-<h1>Saved</h1>
+<h1>Your Saved Articles</h1>
 
-{{#each article}}
-{{title}}
-{{link}}
+<div class="container">
+
+<p>{{#each article}}</p>
+<p><a href={{link}}>{{title}}</a></p>
+<button type="button" class="btn btn-primary" data-id={{_id}} data-toggle="modal" data-target="#exampleModal">Leave a comment</button>
+<button class="save-article" data-id={{_id}}>Remove from Saved</button>
+{{!-- <button class="write-note" data-id={{_id}}>Leave Comments</button> --}}
 {{/each}}
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="notes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Your Comments</label>
+            <textarea class="form-control" id="comments" rows="3"></textarea>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save-note">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

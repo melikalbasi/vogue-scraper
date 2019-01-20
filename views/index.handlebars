@@ -1,31 +1,49 @@
-<h1>Index</h1>
+<div class="jumbotron">
+  <h1 class="display-4">Mongo Scraper</h1>
+  <p class="lead">Vogue Edition</p>
+  <hr class="my-4">
+  <p>All the top headline articles, available for your curation.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">See New Headlines</a>
+  <a class="btn btn-primary btn-lg" href="/saved" role="button">Your Saved Articles</a>
+</div>
+
 
 {{#each article}}
-{{title}}
-{{link}}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-<button class="save-button" data-id={{_id}}>Save this Article</button>
-{{!-- <button class="write-note" data-id={{_id}}>Leave Comments</button> --}}
+<div class="card">
+  <div class="card-header">Article Title</div>
+  <div class="card-body">
+    <h5 class="card-title"><a href={{link}}>{{title}}</a></h5>
+    <p class="card-text">{{author}}</p>
+    <button type="button" class="btn btn-primary" data-id={{_id}} data-toggle="modal" data-target="#exampleModal">Leave a comment</button>
+    <button class="btn btn-primary save-button" data-id={{_id}}>Save this Article</button>
+  </div>
+</div>
 {{/each}}
 
 
 
-<!-- Button trigger modal -->
-  Launch demo modal
-</button>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Note</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Your Comments</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

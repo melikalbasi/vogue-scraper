@@ -58,6 +58,8 @@ app.get("/scrape", function(req, res) {
       result.link = $(this)
         .children("a")
         .attr("href");
+      result.img = $(this).find("img").attr("src");
+      result.author = $(this).find("contributor-byline--line").children("a").text();
 
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -91,26 +93,25 @@ app.get("/", function(req, res) {
 // Route for saved articles
 
 app.get("/saved", function(req, res) {
-  db.notes.find(
+  db.Note.find(
     {
-      // Using the id in the url
       saved: true
     },
     function(error, found) {
       // log any errors
       if (error) {
-        console.log(error);
         res.send(error);
+        console.log(error);
       }
       else {
         // Otherwise, send the note to the browser
         // This will fire off the success function of the ajax request
+        res.render("saved");
         console.log(found);
-        res.send(found);
       }
     }
   );
-  res.render("saved");
+  // res.render("saved");
 });
 
 // Route for saving articles to favorites

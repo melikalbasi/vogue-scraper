@@ -12,10 +12,10 @@
 <div class="card">
   <div class="card-header">Article Title</div>
   <div class="card-body">
-    <h5 class="card-title"><a href={{link}}>{{title}}</a></h5>
-    <p class="card-text">{{author}}</p>
+    <h5 class="card-title"><a class="links" href={{link}}>{{title}}</a></h5>
+    {{!-- <p class="card-text">{{author}}</p> --}}
     <button type="button" class="btn btn-primary" data-id={{_id}} data-toggle="modal" data-target="#exampleModal">Leave a comment</button>
-    <button class="btn btn-primary save-button" data-id={{_id}}>Save this Article</button>
+    <button class="btn btn-primary" id= "save-button" data-id={{_id}}>Save this Article</button>
   </div>
 </div>
 {{/each}}
@@ -47,7 +47,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="save-note">Save changes</button>
       </div>
     </div>
   </div>

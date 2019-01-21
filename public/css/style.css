@@ -1,3 +1,22 @@
 body {
   font-family: 'Cardo', serif;
+  text-align: center;
+}
+
+.links {
+  color: black !important;
+}
+
+.links:hover {
+  color: burlywood !important;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+  background-color: burlywood !important;
+  border-color: burlywood !important;
+}
+
+.btn-primary:hover {
+  background-color: bisque !important;
+  border-color: bisque !important;
 }

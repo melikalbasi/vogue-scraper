@@ -117,6 +117,16 @@ app.put("/saved/:id", function(req, res) {
   });
 });
 
+// Route for removing articles from favorites
+app.post("/unsaved/:id", function(req, res) {
+  db.Article.findOneAndUpdate( {_id: req.params.id}, {$set: {saved: false}})
+  .then(function(dbSaved) {
+    res.redirect("/saved")
+    // res.json(dbArticle);
+    console.log(dbSaved);
+  })
+});
+
 
 
 app.get("/articles/:id", function(req, res) {

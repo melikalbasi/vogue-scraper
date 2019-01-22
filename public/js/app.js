@@ -1,3 +1,4 @@
+
 // Event handler for save-article
 $(document).on("click", "#save-button", function() {
   var thisId = $(this).attr("data-id");
@@ -49,3 +50,48 @@ $(document).on("click", "#save-note", function() {
   $("#titleinput").val("");
   $("#exampleFormControlTextarea1").val("");
 });
+
+// When you remove from saved
+$(document).on("click", "#unsave-button", function (event) {
+  // event.preventDefault();
+  var thisId = $(this).attr("data-id");
+  $.ajax({
+      method: "POST",
+      url: "/unsaved/" + thisId,
+  }).then(function (data) {
+    window.location.replace("/saved")
+    console.log(data);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

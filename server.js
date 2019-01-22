@@ -48,20 +48,19 @@ app.get("/scrape", function(req, res) {
 
     var $ = cheerio.load(response.data);
 
-    $("h2.feed-card--title").each(function(i, element) {
+    $(".feed-card").each(function(i, element) {
 
       var result = {};
 
-      result.title = $(this)
+      result.title = $(this).find(".feed-card--title")
         .children("a")
         .text();
-        console.log("THIS", this);
-      result.link = $(this)
+      result.link = $(this).find(".feed-card--title")
         .children("a")
         .attr("href");
-      // result.img = $(this).find("img").attr("src");
-      // result.author = $(this).find("contributor-byline--line").children("a").text();
-
+      result.img = $(this).find(".collection-list--image").attr("srcset");
+      result.author = $(this).find(".contributor-byline--name").text();
+      console.log(result);
       db.Article.create(result)
         .then(function(dbArticle) {
           console.log(dbArticle);

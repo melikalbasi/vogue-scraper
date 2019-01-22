@@ -60,8 +60,6 @@ app.get("/scrape", function(req, res) {
         .attr("href");
       result.img = $(this).find(".collection-list--image").attr("srcset");
       result.author = $(this).find(".contributor-byline--name").text();
-     
-    
 
       console.log(result);
 

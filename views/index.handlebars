@@ -15,8 +15,9 @@
     <a class="links" href={{link}}>{{title}}</a><br><br>
     <img src={{img}}><br>
     <h5 class="card-title">by {{author}}</h5>
-    <button type="button" class="btn btn-primary" data-id="{{_id}}" data-toggle="modal" data-target="#exampleModal">Leave a comment</button>
-    <button class="btn btn-primary" id= "save-button" data-id="{{_id}}">Save this Article</button>
+    <button type="button" class="btn btn-primary" data-id="{{_id}}" data-toggle="modal" data-target="#exampleModal">Leave
+      a comment</button>
+    <button class="btn btn-primary" id="save-button" data-id="{{_id}}">Save this Article</button>
   </div>
 </div>
 
@@ -38,17 +39,22 @@
         </button>
       </div>
       <div class="modal-body">
+        <input class="form-control" id="nameinput" type="text" placeholder="Name">
 
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Your Comments</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
+        <input class="form-control" id="titleinput" type="text" placeholder="Title">
+
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Your Comments</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="allNotes"></div>
         </form>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-note" data-id={{_id}}>Save changes</button>
+        <button type="button" class="btn btn-primary" id="save-note" data-id={{_id}}>Post Comment</button>
       </div>
     </div>
   </div>

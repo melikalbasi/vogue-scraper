@@ -1,12 +1,12 @@
 # Vogue Scraper
 
-All the current top headline articles from Vogue, available at your fingertips for your accessiblility and curation. Users can save their favorite articles as well as comment on them. You can refresh the pge to load all the most recent content from [Vogue](www.vogue.com). 
+All the current top headline articles from Vogue, available at your fingertips for your accessiblility and curation. Users can save their favorite articles as well as comment on them. You can refresh the pge to load all the most recent content from [Vogue.com](www.vogue.com). 
 
 ![Vogue](/public/images/voguescraper2.png)
 
 ## Getting Started
 
-To use this app, you can either clone this repo down on your local device, or visit the deployed site [here](https://vogue-scraper.herokuapp.com/). 
+To use this app, you can either clone this repo down on your local device, or visit the deployed site [here](https://vogue-scraper-1223.herokuapp.com/). 
 
 
 ### Installing
@@ -35,7 +35,7 @@ Required Axios and Cheerio to scrape data from vogue.com
 
 ## Deployment
 
-Deployed on Heroku [here](https://vogue-scraper.herokuapp.com/).
+Deployed on Heroku [here](https://vogue-scraper-1223.herokuapp.com/).
 
 ## Built With
 

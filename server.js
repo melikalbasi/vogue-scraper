@@ -69,8 +69,9 @@ app.get("/scrape", function(req, res) {
           console.log(err);
         });
     });
-
-    res.send("Scrape Complete");
+    res.redirect("/");
+    console.log("Scrape complete");
+    // res.send("Scrape Complete");
 
   });
 });

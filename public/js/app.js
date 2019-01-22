@@ -27,21 +27,17 @@
 
 
 // Event handler for save-article
-// $(document).on("click", "#save-button", function() {
-//   var thisId = $(this).attr("data-id");
-//   // Run a PUT request to change the note, using what's entered in the inputs
-//   $.ajax({
-//     method: "POST",
-//     url: "/saved/" + thisId,
-//     data: {
-//       title: title,
-//       link: link
-//     }
-//   })
-//     .then(function(data) {
-//       console.log(data);
-//     });
-// });
+$(document).on("click", "#save-button", function() {
+  var thisId = $(this).attr("data-id");
+  // Run a PUT request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "PUT",
+    url: "/saved/" + thisId,
+  })
+    .then(function(data) {
+      console.log(data);
+    });
+});
 
 
 
@@ -89,21 +85,22 @@ $(document).on("click", "#save-note", function() {
     method: "POST",
     url: "/articles/" + thisId,
     data: {
+      _articleId: thisId,
       // Value taken from title input
-      title: $("#titleinput").val(),
+      // title: $("#titleinput").val(),
       // Value taken from note textarea
-      body: $("#bodyinput").val()
+      body: $("#exampleFormControlTextarea1").val()
     }
   })
     // With that done
     .then(function(data) {
       // Log the response
+      $("#newDiv").append(data.body);
       console.log(data);
       // Empty the notes section
       $("#notes").empty();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
-  $("#titleinput").val("");
-  $("#bodyinput").val("");
+  $("#exampleFormControlTextarea1").val("");
 });

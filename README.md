@@ -19,7 +19,13 @@ npm i
 
 in your terminal.
 
+## MongoDB
 
+In order for the app to render locally, you will need to have mongoDB installed on your computer. Depending on your operating system, the installation proccess will be different. You can find more info on installing mongoDB through their documentation.
+
+```
+https://docs.mongodb.com/manual/installation/
+```
 
 ## Functionality
 
@@ -31,7 +37,35 @@ Use Vogue Scraper to save your favorite articles and leave comments.
 
 Required Axios and Cheerio to scrape data from vogue.com
 
-![codesnip](public/images/codesnip.png)
+```
+// GET route for scraping vogue website
+app.get("/scrape", function(req, res) {
+  axios.get("http://www.vogue.com/").then(function(response) {
+
+    var $ = cheerio.load(response.data);
+
+    $(".feed-card").each(function(i, element) {
+
+      var result = {};
+
+      result.title = $(this).find(".feed-card--title")
+        .children("a")
+        .text();
+      result.link = $(this).find(".feed-card--title")
+        .children("a")
+        .attr("href");
+      result.img = $(this).find(".collection-list--image").attr("srcset");
+      result.author = $(this).find(".contributor-byline--name").text();
+
+      db.Article.create(result)
+        .then(function(dbArticle) {
+          console.log(dbArticle);
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    });
+    ```
 
 ## Deployment
 

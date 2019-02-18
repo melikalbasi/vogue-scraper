@@ -61,8 +61,6 @@ app.get("/scrape", function(req, res) {
       result.img = $(this).find(".collection-list--image").attr("srcset");
       result.author = $(this).find(".contributor-byline--name").text();
 
-      console.log(result);
-
       db.Article.create(result)
         .then(function(dbArticle) {
           console.log(dbArticle);

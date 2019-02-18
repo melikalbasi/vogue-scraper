@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/melikalbasi/Vogue-Scraper.git"
+    "url": "git+https://github.com/melikalbasi/vogue-scraper.git"
   },
   "author": "melika kalbasi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/melikalbasi/Vogue-Scraper/issues"
+    "url": "https://github.com/melikalbasi/vogue-scraper/issues"
   },
-  "homepage": "https://github.com/melikalbasi/Vogue-Scraper#readme",
+  "homepage": "https://github.com/melikalbasi/vogue-scraper#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",

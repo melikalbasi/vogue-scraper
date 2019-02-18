@@ -6,7 +6,7 @@ All the current top headline articles from Vogue, available at your fingertips f
 
 ## Getting Started
 
-To use this app, you can either clone this repo down on your local device, or visit the deployed site [here](https://vogue-scraper-1223.herokuapp.com/). 
+To use this app, you can either clone this repo down on your local device, or visit the deployed site [here](https://vogue-scraper.herokuapp.com/). 
 
 
 ### Installing
